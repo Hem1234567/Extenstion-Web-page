@@ -1,0 +1,273 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+  *{margin:0;padding:0;box-sizing:border-box;}
+  :root{
+    --sp:'Space Grotesk',sans-serif;
+    --in:'Inter',sans-serif;
+    --ink:#0f0f0f;
+    --ink2:#444;
+    --ink3:#888;
+    --bg:#f7f6f3;
+    --white:#fff;
+    --accent:#2563eb;
+    --border:#e5e3dd;
+  }
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--in);background:var(--bg);color:var(--ink);}
+
+  nav{background:rgba(247,246,243,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 1.25rem;position:sticky;top:0;z-index:99;}
+  .nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:56px;}
+  .nav-logo{font-family:var(--sp);font-weight:700;font-size:17px;letter-spacing:-0.5px;color:var(--ink);text-decoration:none;}
+  .nav-logo span{color:var(--accent);}
+  .nav-links{display:flex;gap:20px;flex-wrap:wrap;}
+  .nav-links a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s;white-space:nowrap;}
+  .nav-links a:hover{color:var(--accent);}
+  @media(max-width:600px){
+    .nav-links{gap:12px;}
+    .nav-links a{font-size:12px;}
+    .nav-logo{font-size:15px;}
+  }
+  @media(max-width:420px){
+    .nav-links{display:none;}
+  }
+
+  .hero{background:var(--ink);color:#fff;padding:72px 1.25rem 64px;text-align:center;}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:500;margin-bottom:24px;color:rgba(255,255,255,0.65);}
+  .hero-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;flex-shrink:0;}
+  .hero h1{font-family:var(--sp);font-size:clamp(34px,9vw,68px);font-weight:700;letter-spacing:-2px;line-height:1.05;margin-bottom:16px;color:#fff;}
+  .hero h1 span{color:#93c5fd;}
+  .hero p{font-size:clamp(14px,4vw,17px);color:rgba(255,255,255,0.5);max-width:400px;margin:0 auto 36px;line-height:1.6;}
+  .hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .btn-primary{background:#2563eb;color:#fff;padding:12px 24px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;font-family:var(--sp);transition:opacity .15s;display:inline-block;}
+  .btn-primary:hover{opacity:0.85;}
+  .btn-secondary{background:rgba(255,255,255,0.08);color:#fff;padding:12px 24px;border-radius:10px;font-weight:500;font-size:14px;text-decoration:none;border:1px solid rgba(255,255,255,0.18);font-family:var(--sp);transition:background .2s;display:inline-block;}
+  .btn-secondary:hover{background:rgba(255,255,255,0.14);}
+
+  section{padding:60px 1.25rem;}
+  .section-inner{max-width:1100px;margin:0 auto;}
+  .section-label{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;}
+  .section-title{font-family:var(--sp);font-size:clamp(24px,6vw,40px);font-weight:700;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;}
+  .section-sub{font-size:15px;color:var(--ink2);max-width:480px;line-height:1.6;}
+
+  #download{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+  .download-box{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:28px 28px;}
+  .version-badge{display:inline-block;background:#dcfce7;color:#15803d;font-size:12px;font-weight:600;border-radius:100px;padding:3px 12px;margin-bottom:10px;}
+  .download-box h3{font-family:var(--sp);font-size:20px;font-weight:700;letter-spacing:-0.5px;margin-bottom:4px;}
+  .download-box p{font-size:13px;color:var(--ink3);}
+  .btn-download{display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:12px 22px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;font-family:var(--sp);white-space:nowrap;flex-shrink:0;}
+  .btn-download svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+
+  #installation{background:var(--bg);}
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:40px;}
+  @media(max-width:520px){
+    .steps{grid-template-columns:1fr;}
+  }
+  .step-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:20px 18px;position:relative;overflow:hidden;}
+  .step-card::before{content:attr(data-n);position:absolute;top:14px;right:16px;font-family:var(--sp);font-size:36px;font-weight:700;color:rgba(0,0,0,0.04);line-height:1;}
+  .step-icon{width:36px;height:36px;border-radius:9px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .step-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  .step-card h4{font-family:var(--sp);font-size:13px;font-weight:700;margin-bottom:5px;}
+  .step-card p{font-size:12px;color:var(--ink3);line-height:1.5;}
+  .step-card code{font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:monospace;}
+
+  #screenshots{background:var(--white);border-top:1px solid var(--border);}
+  .ss-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:40px;}
+  @media(max-width:420px){
+    .ss-grid{grid-template-columns:1fr;}
+  }
+  .ss-placeholder{border-radius:12px;background:#ede9fe;border:1px solid #c4b5fd;aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+  .ss-placeholder svg{width:26px;height:26px;stroke:#7c3aed;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:0.6;}
+  .ss-placeholder span{font-size:11px;color:#7c3aed;font-weight:500;}
+
+  #changelog{background:var(--bg);}
+  .changelog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:40px;}
+  @media(max-width:420px){
+    .changelog-grid{grid-template-columns:1fr;}
+  }
+  .changelog-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;}
+  .changelog-card.upcoming{background:#0f172a;border-color:#1e293b;}
+  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:6px;padding:3px 10px;margin-bottom:14px;}
+  .tag.released{background:#dcfce7;color:#15803d;}
+  .tag.upcoming-tag{background:#1e3a8a;color:#93c5fd;}
+  .changelog-card h3{font-family:var(--sp);font-size:17px;font-weight:700;margin-bottom:14px;color:var(--ink);}
+  .changelog-card.upcoming h3{color:#fff;}
+  .changelog-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
+  .changelog-card li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--ink2);}
+  .changelog-card.upcoming li{color:rgba(255,255,255,0.55);}
+  .li-dot{width:16px;height:16px;border-radius:50%;background:var(--bg);border:1px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+  .changelog-card.upcoming .li-dot{background:#1e293b;border-color:#334155;}
+  .li-dot::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);}
+  .changelog-card.upcoming .li-dot::after{background:#60a5fa;}
+
+  #contact{background:var(--white);border-top:1px solid var(--border);}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:40px;}
+  @media(max-width:600px){
+    .contact-grid{grid-template-columns:1fr;gap:28px;}
+  }
+  .contact-info h3{font-family:var(--sp);font-size:18px;font-weight:700;margin-bottom:10px;}
+  .contact-info p{font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:20px;}
+  .contact-tag{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink2);}
+  .contact-form{display:flex;flex-direction:column;gap:12px;}
+  .contact-form input,.contact-form textarea{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:var(--in);background:var(--bg);color:var(--ink);outline:none;transition:border-color .2s;}
+  .contact-form input:focus,.contact-form textarea:focus{border-color:#2563eb;}
+  .contact-form textarea{height:100px;resize:none;}
+  .btn-send{background:var(--ink);color:#fff;border:none;padding:12px;border-radius:10px;font-weight:600;font-size:14px;font-family:var(--sp);cursor:pointer;width:100%;}
+
+  footer{background:var(--ink);color:rgba(255,255,255,0.4);padding:24px 1.25rem;text-align:center;font-size:13px;}
+  footer span{color:rgba(255,255,255,0.75);font-weight:500;}
+</style>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Hems<span>.</span></a>
+    <div class="nav-links">
+      <a href="#download">Download</a>
+      <a href="#installation">Install</a>
+      <a href="#screenshots">Screenshots</a>
+      <a href="#changelog">Changelog</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow"><span class="hero-dot"></span> Chrome Extension · v1.0.0</div>
+  <h1>Learn faster.<br><span>Automate</span> the rest.</h1>
+  <p>Hems handles navigation, questions, and workflow — so you can focus on what matters.</p>
+  <div class="hero-btns">
+    <a href="assets/AutoLearningAssistant.zip" download class="btn-primary">Download Extension</a>
+    <a href="#installation" class="btn-secondary">Install guide →</a>
+  </div>
+</div>
+
+<section id="download">
+  <div class="section-inner">
+    <div class="section-label">Download</div>
+    <div class="section-title">Ready to install</div>
+    <div style="margin-top:28px;">
+      <div class="download-box">
+        <div>
+          <span class="version-badge">v1.0.0 — Latest</span>
+          <h3>Hems Extension</h3>
+          <p>Chrome · ZIP archive · Developer Mode install</p>
+        </div>
+        <a href="assets/AutoLearningAssistant.zip" download class="btn-download">
+          <svg viewBox="0 0 24 24"><path d="M12 5v14m-7-7 7 7 7-7"/><path d="M5 20h14"/></svg>
+          Download ZIP
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="installation">
+  <div class="section-inner">
+    <div class="section-label">Installation</div>
+    <div class="section-title">Up in 5 steps</div>
+    <div class="section-sub">No account needed. Download, unzip, and load into Chrome in under a minute.</div>
+    <div class="steps">
+      <div class="step-card" data-n="1">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 5v14m-7-7 7 7 7-7"/><path d="M5 20h14"/></svg></div>
+        <h4>Download the ZIP</h4>
+        <p>Click the download button above to get the extension package.</p>
+      </div>
+      <div class="step-card" data-n="2">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M3 7h18M8 7V4h8v3M5 7v13h14V7"/></svg></div>
+        <h4>Extract the folder</h4>
+        <p>Unzip the archive to a location you'll remember.</p>
+      </div>
+      <div class="step-card" data-n="3">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg></div>
+        <h4>Open Extensions</h4>
+        <p>Go to <code>chrome://extensions</code> in Chrome.</p>
+      </div>
+      <div class="step-card" data-n="4">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="4" height="10" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="4" width="4" height="17" rx="1"/></svg></div>
+        <h4>Enable Dev Mode</h4>
+        <p>Toggle <strong>Developer mode</strong> in the top-right corner.</p>
+      </div>
+      <div class="step-card" data-n="5">
+        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div>
+        <h4>Load unpacked</h4>
+        <p>Click "Load Unpacked" and select the extracted folder.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="screenshots">
+  <div class="section-inner">
+    <div class="section-label">Screenshots</div>
+    <div class="section-title">See it in action</div>
+    <div class="ss-grid">
+      <div class="ss-placeholder">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 17l4-4 3 3 4-5 4 6"/></svg>
+        <span>ss1.png</span>
+      </div>
+      <div class="ss-placeholder">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 17l4-4 3 3 4-5 4 6"/></svg>
+        <span>ss2.png</span>
+      </div>
+      <div class="ss-placeholder">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 17l4-4 3 3 4-5 4 6"/></svg>
+        <span>ss3.png</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="changelog">
+  <div class="section-inner">
+    <div class="section-label">Changelog</div>
+    <div class="section-title">What's new</div>
+    <div class="changelog-grid">
+      <div class="changelog-card">
+        <span class="tag released">Released</span>
+        <h3>Version 1.0.0</h3>
+        <ul>
+          <li><div class="li-dot"></div>Initial release</li>
+          <li><div class="li-dot"></div>Auto question handling</li>
+          <li><div class="li-dot"></div>Auto navigation across pages</li>
+          <li><div class="li-dot"></div>Performance optimization</li>
+        </ul>
+      </div>
+      <div class="changelog-card upcoming">
+        <span class="tag upcoming-tag">Coming soon</span>
+        <h3>Upcoming features</h3>
+        <ul>
+          <li><div class="li-dot"></div>Analytics dashboard</li>
+          <li><div class="li-dot"></div>Cloud sync across devices</li>
+          <li><div class="li-dot"></div>Multi-platform support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Contact</div>
+    <div class="section-title">Get in touch</div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Questions or feedback?</h3>
+        <p>We read every message and usually respond within a day. Bug reports, feature ideas, or just a hello — drop us a line.</p>
+        <div class="contact-tag">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Responds within 24 hours
+        </div>
+      </div>
+      <div class="contact-form">
+        <input type="text" placeholder="Your name">
+        <input type="email" placeholder="Email address">
+        <textarea placeholder="Your message..."></textarea>
+        <button class="btn-send">Send message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 <span>Hems</span>. All rights reserved.
+</footer>
