@@ -84,8 +84,21 @@
     Download Extension ZIP
   </a>
   <div style="margin-top: 24px; font-size: 14px; color: rgba(255,255,255,0.8); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 16px; border-radius: 12px; max-width: 500px; width: 100%; margin-left: auto; margin-right: auto; text-align: left; box-sizing: border-box; overflow-wrap: break-word;">
-    <p style="margin-bottom: 8px;"><strong>API Key:</strong> <code style="background: rgba(0,0,0,0.3); color: #fff; border: none; padding: 4px 8px; word-break: break-all; display: inline-block; margin-top: 4px;">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</code></p>
-    <p style="margin-bottom: 0;"><strong>AI Model:</strong> <code style="background: rgba(0,0,0,0.3); color: #fff; border: none; padding: 4px 8px; word-break: break-all; display: inline-block; margin-top: 4px;">openai/gpt-4o-mini</code></p>
+    <div style="margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <strong>API Key:</strong>
+        <button onclick="copyToClipboard('api-key-code', this)" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; transition: all 0.2s;">Copy</button>
+      </div>
+      <code id="api-key-code" style="background: rgba(0,0,0,0.3); color: #fff; border: none; padding: 8px 12px; border-radius: 6px; word-break: break-all; display: block;">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</code>
+    </div>
+    
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <strong>AI Model:</strong>
+        <button onclick="copyToClipboard('ai-model-code', this)" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 4px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; transition: all 0.2s;">Copy</button>
+      </div>
+      <code id="ai-model-code" style="background: rgba(0,0,0,0.3); color: #fff; border: none; padding: 8px 12px; border-radius: 6px; word-break: break-all; display: block;">openai/gpt-4o-mini</code>
+    </div>
   </div>
 </div>
 
@@ -178,5 +191,23 @@
 <footer>
   © 2026 Hems. All rights reserved.
 </footer>
+<script>
+  function copyToClipboard(elementId, btn) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const originalText = btn.innerText;
+      btn.innerText = 'Copied!';
+      btn.style.background = '#22c55e';
+      btn.style.borderColor = '#22c55e';
+      setTimeout(() => {
+        btn.innerText = originalText;
+        btn.style.background = 'rgba(255,255,255,0.1)';
+        btn.style.borderColor = 'rgba(255,255,255,0.2)';
+      }, 2000);
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
+  }
+</script>
 </body>
 </html>
