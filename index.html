@@ -1,6 +1,11 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hems Extension - Installation Guide</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
   *{margin:0;padding:0;box-sizing:border-box;}
   :root{
     --sp:'Space Grotesk',sans-serif;
@@ -17,264 +22,154 @@
   body{font-family:var(--in);background:var(--bg);color:var(--ink);}
 
   nav{background:rgba(247,246,243,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 1.25rem;position:sticky;top:0;z-index:99;}
-  .nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:56px;}
+  .nav-inner{max-width:900px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:56px;}
   .nav-logo{font-family:var(--sp);font-weight:700;font-size:17px;letter-spacing:-0.5px;color:var(--ink);text-decoration:none;}
   .nav-logo span{color:var(--accent);}
-  .nav-links{display:flex;gap:20px;flex-wrap:wrap;}
-  .nav-links a{font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;transition:color .2s;white-space:nowrap;}
-  .nav-links a:hover{color:var(--accent);}
-  @media(max-width:600px){
-    .nav-links{gap:12px;}
-    .nav-links a{font-size:12px;}
-    .nav-logo{font-size:15px;}
-  }
-  @media(max-width:420px){
-    .nav-links{display:none;}
-  }
 
   .hero{background:var(--ink);color:#fff;padding:72px 1.25rem 64px;text-align:center;}
   .hero-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:100px;padding:5px 14px;font-size:12px;font-weight:500;margin-bottom:24px;color:rgba(255,255,255,0.65);}
   .hero-dot{width:6px;height:6px;border-radius:50%;background:#22c55e;display:inline-block;flex-shrink:0;}
-  .hero h1{font-family:var(--sp);font-size:clamp(34px,9vw,68px);font-weight:700;letter-spacing:-2px;line-height:1.05;margin-bottom:16px;color:#fff;}
-  .hero h1 span{color:#93c5fd;}
-  .hero p{font-size:clamp(14px,4vw,17px);color:rgba(255,255,255,0.5);max-width:400px;margin:0 auto 36px;line-height:1.6;}
-  .hero-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-  .btn-primary{background:#2563eb;color:#fff;padding:12px 24px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;font-family:var(--sp);transition:opacity .15s;display:inline-block;}
+  .hero h1{font-family:var(--sp);font-size:clamp(34px,7vw,56px);font-weight:700;letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;color:#fff;}
+  .hero p{font-size:clamp(14px,4vw,17px);color:rgba(255,255,255,0.6);max-width:500px;margin:0 auto 36px;line-height:1.6;}
+  .btn-primary{background:#2563eb;color:#fff;padding:14px 28px;border-radius:12px;font-weight:600;font-size:15px;text-decoration:none;font-family:var(--sp);transition:opacity .15s;display:inline-flex;align-items:center;gap:8px;}
   .btn-primary:hover{opacity:0.85;}
-  .btn-secondary{background:rgba(255,255,255,0.08);color:#fff;padding:12px 24px;border-radius:10px;font-weight:500;font-size:14px;text-decoration:none;border:1px solid rgba(255,255,255,0.18);font-family:var(--sp);transition:background .2s;display:inline-block;}
-  .btn-secondary:hover{background:rgba(255,255,255,0.14);}
+  .btn-primary svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;}
 
-  section{padding:60px 1.25rem;}
-  .section-inner{max-width:1100px;margin:0 auto;}
-  .section-label{font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;}
-  .section-title{font-family:var(--sp);font-size:clamp(24px,6vw,40px);font-weight:700;letter-spacing:-1px;line-height:1.1;margin-bottom:12px;}
-  .section-sub{font-size:15px;color:var(--ink2);max-width:480px;line-height:1.6;}
+  section{padding:80px 1.25rem;}
+  .section-inner{max-width:800px;margin:0 auto;}
+  .section-title{font-family:var(--sp);font-size:32px;font-weight:700;letter-spacing:-1px;margin-bottom:12px;}
+  .section-sub{font-size:16px;color:var(--ink2);line-height:1.6;margin-bottom:40px;}
 
-  #download{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-  .download-box{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:28px 28px;}
-  .version-badge{display:inline-block;background:#dcfce7;color:#15803d;font-size:12px;font-weight:600;border-radius:100px;padding:3px 12px;margin-bottom:10px;}
-  .download-box h3{font-family:var(--sp);font-size:20px;font-weight:700;letter-spacing:-0.5px;margin-bottom:4px;}
-  .download-box p{font-size:13px;color:var(--ink3);}
-  .btn-download{display:flex;align-items:center;gap:8px;background:var(--ink);color:#fff;padding:12px 22px;border-radius:10px;font-weight:600;font-size:14px;text-decoration:none;font-family:var(--sp);white-space:nowrap;flex-shrink:0;}
-  .btn-download svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-
-  #installation{background:var(--bg);}
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:40px;}
-  @media(max-width:520px){
-    .steps{grid-template-columns:1fr;}
-  }
-  .step-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:20px 18px;position:relative;overflow:hidden;}
-  .step-card::before{content:attr(data-n);position:absolute;top:14px;right:16px;font-family:var(--sp);font-size:36px;font-weight:700;color:rgba(0,0,0,0.04);line-height:1;}
-  .step-icon{width:36px;height:36px;border-radius:9px;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
-  .step-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-  .step-card h4{font-family:var(--sp);font-size:13px;font-weight:700;margin-bottom:5px;}
-  .step-card p{font-size:12px;color:var(--ink3);line-height:1.5;}
-  .step-card code{font-size:11px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-family:monospace;}
-
-  #screenshots{background:var(--white);border-top:1px solid var(--border);}
-  .ss-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-top:40px;}
-  @media(max-width:420px){
-    .ss-grid{grid-template-columns:1fr;}
-  }
-  .ss-placeholder{border-radius:12px;background:#ede9fe;border:1px solid #c4b5fd;aspect-ratio:16/10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;}
-  .ss-placeholder svg{width:26px;height:26px;stroke:#7c3aed;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;opacity:0.6;}
-  .ss-placeholder span{font-size:11px;color:#7c3aed;font-weight:500;}
-
-  #changelog{background:var(--bg);}
-  .changelog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:40px;}
-  @media(max-width:420px){
-    .changelog-grid{grid-template-columns:1fr;}
-  }
-  .changelog-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:24px;}
-  .changelog-card.upcoming{background:#0f172a;border-color:#1e293b;}
-  .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;border-radius:6px;padding:3px 10px;margin-bottom:14px;}
-  .tag.released{background:#dcfce7;color:#15803d;}
-  .tag.upcoming-tag{background:#1e3a8a;color:#93c5fd;}
-  .changelog-card h3{font-family:var(--sp);font-size:17px;font-weight:700;margin-bottom:14px;color:var(--ink);}
-  .changelog-card.upcoming h3{color:#fff;}
-  .changelog-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
-  .changelog-card li{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:var(--ink2);}
-  .changelog-card.upcoming li{color:rgba(255,255,255,0.55);}
-  .li-dot{width:16px;height:16px;border-radius:50%;background:var(--bg);border:1px solid var(--border);flex-shrink:0;display:flex;align-items:center;justify-content:center;margin-top:1px;}
-  .changelog-card.upcoming .li-dot{background:#1e293b;border-color:#334155;}
-  .li-dot::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent);}
-  .changelog-card.upcoming .li-dot::after{background:#60a5fa;}
-
-  #contact{background:var(--white);border-top:1px solid var(--border);}
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:40px;}
+  .timeline{display:flex;flex-direction:column;gap:24px;}
+  .step-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:32px;display:flex;gap:24px;box-shadow:0 4px 20px rgba(0,0,0,0.02);}
   @media(max-width:600px){
-    .contact-grid{grid-template-columns:1fr;gap:28px;}
+    .step-card{flex-direction:column;padding:24px;gap:16px;}
   }
-  .contact-info h3{font-family:var(--sp);font-size:18px;font-weight:700;margin-bottom:10px;}
-  .contact-info p{font-size:14px;color:var(--ink2);line-height:1.7;margin-bottom:20px;}
-  .contact-tag{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink2);}
-  .contact-form{display:flex;flex-direction:column;gap:12px;}
-  .contact-form input,.contact-form textarea{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:10px;font-size:14px;font-family:var(--in);background:var(--bg);color:var(--ink);outline:none;transition:border-color .2s;}
-  .contact-form input:focus,.contact-form textarea:focus{border-color:#2563eb;}
-  .contact-form textarea{height:100px;resize:none;}
-  .btn-send{background:var(--ink);color:#fff;border:none;padding:12px;border-radius:10px;font-weight:600;font-size:14px;font-family:var(--sp);cursor:pointer;width:100%;}
+  .step-num{width:48px;height:48px;border-radius:12px;background:var(--accent);color:var(--white);display:flex;align-items:center;justify-content:center;font-family:var(--sp);font-size:24px;font-weight:700;flex-shrink:0;}
+  .step-content{flex:1;}
+  .step-content h3{font-family:var(--sp);font-size:20px;font-weight:700;margin-bottom:12px;color:var(--ink);}
+  .step-content p{font-size:15px;color:var(--ink2);line-height:1.7;margin-bottom:16px;}
+  .step-content p:last-child{margin-bottom:0;}
+  
+  .highlight-box{background:#eff6ff;border:1px solid #bfdbfe;border-radius:12px;padding:16px;margin-top:16px;display:flex;gap:12px;}
+  .highlight-box svg{width:20px;height:20px;stroke:#2563eb;fill:none;stroke-width:2;flex-shrink:0;margin-top:2px;}
+  .highlight-box p{font-size:14px;color:#1e40af;margin-bottom:0;}
 
-  footer{background:var(--ink);color:rgba(255,255,255,0.4);padding:24px 1.25rem;text-align:center;font-size:13px;}
-  footer span{color:rgba(255,255,255,0.75);font-weight:500;}
+  .warning-box{background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:16px;margin-top:16px;display:flex;gap:12px;}
+  .warning-box svg{width:20px;height:20px;stroke:#d97706;fill:none;stroke-width:2;flex-shrink:0;margin-top:2px;}
+  .warning-box p{font-size:14px;color:#92400e;margin-bottom:0;}
+
+  code{background:#f1f5f9;border:1px solid #e2e8f0;padding:2px 8px;border-radius:6px;font-family:monospace;font-size:14px;color:#0f172a;font-weight:600;}
+
+  footer{background:var(--ink);color:rgba(255,255,255,0.4);padding:32px 1.25rem;text-align:center;font-size:14px;}
 </style>
+</head>
+<body>
 
 <nav>
   <div class="nav-inner">
     <a class="nav-logo" href="#">Hems<span>.</span></a>
-    <div class="nav-links">
-      <a href="#download">Download</a>
-      <a href="#installation">Install</a>
-      <a href="#screenshots">Screenshots</a>
-      <a href="#changelog">Changelog</a>
-      <a href="#contact">Contact</a>
-    </div>
   </div>
 </nav>
 
 <div class="hero">
-  <div class="hero-eyebrow"><span class="hero-dot"></span> Chrome Extension · v1.0.0</div>
-  <h1>Learn faster.<br><span>Automate</span> the rest.</h1>
-  <p>Hems handles navigation, questions, and workflow — so you can focus on what matters.</p>
-  <div class="hero-btns">
-    <a href="assets/Neopat-automation-Hems-extension.zip" download class="btn-primary">Download Extension</a>
-    <a href="#installation" class="btn-secondary">Install guide →</a>
-  </div>
+  <div class="hero-eyebrow"><span class="hero-dot"></span> Complete Installation Guide</div>
+  <h1>How to install Hems</h1>
+  <p>Follow this step-by-step guide to download, install, and set up the Hems Chrome Extension manually. Don't skip any steps!</p>
+  <a href="assets/Neopat-automation-Hems-extension.zip" download class="btn-primary">
+    <svg viewBox="0 0 24 24"><path d="M12 5v14m-7-7 7 7 7-7"/><path d="M5 20h14"/></svg>
+    Download Extension ZIP
+  </a>
 </div>
 
-<section id="download">
+<section>
   <div class="section-inner">
-    <div class="section-label">Download</div>
-    <div class="section-title">Ready to install</div>
-    <div style="margin-top:28px;">
-      <div class="download-box">
-        <div>
-          <span class="version-badge">v1.0.0 — Latest</span>
-          <h3>Hems Extension</h3>
-          <p>Chrome · ZIP archive · Developer Mode install</p>
-        </div>
-        <a href="assets/Neopat-automation-Hems-extension.zip" download class="btn-download">
-          <svg viewBox="0 0 24 24"><path d="M12 5v14m-7-7 7 7 7-7"/><path d="M5 20h14"/></svg>
-          Download ZIP
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="installation">
-  <div class="section-inner">
-    <div class="section-label">Installation</div>
-    <div class="section-title">Up in 6 steps</div>
-    <div class="section-sub">No account needed. Download, unzip, and load into Chrome in under a minute.</div>
-    <div class="steps">
-      <div class="step-card" data-n="1">
-        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
-        <h4>Download the ZIP</h4>
-        <p>Click the download button above to get the extension package.</p>
-      </div>
-      <div class="step-card" data-n="2">
-        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-        <h4>Extract the folder</h4>
-        <p>Unzip the archive to a location you'll remember.</p>
-      </div>
-      <div class="step-card" data-n="3">
-        <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-        <h4>Open Extensions</h4>
-        <p>Go to <code>chrome://extensions</code> in Chrome.</p>
-      </div>
-      <div class="step-card" data-n="4">
-        <div class="step-icon"><svg viewBox="0 0 24 24"><rect x="1" y="5" width="22" height="14" rx="7" ry="7"/><circle cx="16" cy="12" r="3"/></svg></div>
-        <h4>Enable Dev Mode</h4>
-        <p>Toggle <strong>Developer mode</strong> in the top-right corner.</p>
-      </div>
-      <div class="step-card" data-n="5">
-        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg></div>
-        <h4>Load unpacked</h4>
-        <p>Click "Load Unpacked" and select the extracted folder.</p>
-      </div>
-      <div class="step-card" data-n="6">
-        <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12 17v5M9 10.76a2 2 0 0 1-1.11 1.79l-1.78.9A2 2 0 0 0 5 15.24V16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-.76a2 2 0 0 0-1.11-1.79l-1.78-.9A2 2 0 0 1 15 10.76V7a1 1 0 0 1 1-1 2 2 0 0 0 0-4H8a2 2 0 0 0 0 4 1 1 0 0 1 1 1v3.76z"/></svg></div>
-        <h4>Pin to toolbar</h4>
-        <p>Click the puzzle icon in Chrome and pin Hems for quick access.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="screenshots">
-  <div class="section-inner">
-    <div class="section-label">Screenshots</div>
-    <div class="section-title">See it in action</div>
-    <div class="ss-grid">
-      <div class="ss-placeholder">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 17l4-4 3 3 4-5 4 6"/></svg>
-        <span>ss1.png</span>
-      </div>
-      <div class="ss-placeholder">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 17l4-4 3 3 4-5 4 6"/></svg>
-        <span>ss2.png</span>
-      </div>
-      <div class="ss-placeholder">
-        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M3 17l4-4 3 3 4-5 4 6"/></svg>
-        <span>ss3.png</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="changelog">
-  <div class="section-inner">
-    <div class="section-label">Changelog</div>
-    <div class="section-title">What's new</div>
-    <div class="changelog-grid">
-      <div class="changelog-card">
-        <span class="tag released">Released</span>
-        <h3>Version 1.0.0</h3>
-        <ul>
-          <li><div class="li-dot"></div>Initial release</li>
-          <li><div class="li-dot"></div>Auto question handling</li>
-          <li><div class="li-dot"></div>Auto navigation across pages</li>
-          <li><div class="li-dot"></div>Performance optimization</li>
-        </ul>
-      </div>
-      <div class="changelog-card upcoming">
-        <span class="tag upcoming-tag">Coming soon</span>
-        <h3>Upcoming features</h3>
-        <ul>
-          <li><div class="li-dot"></div>Analytics dashboard</li>
-          <li><div class="li-dot"></div>Cloud sync across devices</li>
-          <li><div class="li-dot"></div>Multi-platform support</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="section-inner">
-    <div class="section-label">Contact</div>
-    <div class="section-title">Get in touch</div>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <h3>Questions or feedback?</h3>
-        <p>We read every message and usually respond within a day. Bug reports, feature ideas, or just a hello — drop us a line.</p>
-        <div class="contact-tag">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Responds within 24 hours
+    <div class="section-title">Step-by-Step Instructions</div>
+    <div class="section-sub">Because this extension is custom, you will need to load it in Developer Mode. It only takes 2 minutes.</div>
+    
+    <div class="timeline">
+      
+      <!-- Step 1 -->
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Download the Extension</h3>
+          <p>Click the blue <strong>"Download Extension ZIP"</strong> button at the top of this page. This will download a file named <code>Neopat-automation-Hems-extension.zip</code> to your computer's Downloads folder.</p>
         </div>
       </div>
-      <div class="contact-form">
-        <input type="text" placeholder="Your name">
-        <input type="email" placeholder="Email address">
-        <textarea placeholder="Your message..."></textarea>
-        <button class="btn-send">Send message</button>
+
+      <!-- Step 2 -->
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>Extract (Unzip) the downloaded file</h3>
+          <p>Locate the downloaded ZIP file on your computer. Right-click on it and select <strong>"Extract All..."</strong> (on Windows) or double-click it (on Mac).</p>
+          <p>Choose a permanent location for the extracted folder (like your Documents or Desktop folder). Chrome needs this folder to remain on your computer for the extension to work.</p>
+          <div class="warning-box">
+            <svg viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <p><strong>Do not delete this folder later!</strong> If you delete or move the extracted folder after installation, the extension will break and stop working.</p>
+          </div>
+        </div>
       </div>
+
+      <!-- Step 3 -->
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>Open the Chrome Extensions Page</h3>
+          <p>Open Google Chrome. Type <code>chrome://extensions</code> into your address bar at the top and press <strong>Enter</strong>.</p>
+          <p>Alternatively, click the three vertical dots (menu) in the top right corner of Chrome, select <strong>"Extensions"</strong>, and then click <strong>"Manage Extensions"</strong>.</p>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Enable Developer Mode</h3>
+          <p>In the top right corner of the Extensions page, you will see a toggle switch labeled <strong>"Developer mode"</strong>. Click the toggle to turn it <strong>ON</strong>. The toggle should turn blue, and a new menu bar will appear at the top left of the page.</p>
+          <div class="highlight-box">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <p>This setting is required to install custom extensions that are loaded directly from a folder on your computer.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="step-card">
+        <div class="step-num">5</div>
+        <div class="step-content">
+          <h3>Load the Unpacked Extension</h3>
+          <p>Click the <strong>"Load unpacked"</strong> button that appeared in the top left corner of the Extensions page.</p>
+          <p>A file browser window will open. Navigate to the folder you extracted in <strong>Step 2</strong>. Select the folder (make sure you are selecting the folder that contains the <code>manifest.json</code> file inside it) and click <strong>"Select Folder"</strong>.</p>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="step-card">
+        <div class="step-num">6</div>
+        <div class="step-content">
+          <h3>Pin the Extension to your Toolbar</h3>
+          <p>The Hems extension is now installed! To make it easy to access, click the <strong>Puzzle Piece icon</strong> (🧩) in the top right corner of Chrome, next to your address bar.</p>
+          <p>Find "Hems" in the dropdown list and click the <strong>Pin icon</strong> (📌) next to it. The Hems icon will now be permanently visible in your toolbar.</p>
+        </div>
+      </div>
+      
+      <!-- Step 7 -->
+      <div class="step-card">
+        <div class="step-num">7</div>
+        <div class="step-content">
+          <h3>You're All Set!</h3>
+          <p>Click the Hems icon in your toolbar to open the extension and start using it. You have successfully installed the extension.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <footer>
-  © 2026 <span>Hems</span>. All rights reserved.
+  © 2026 Hems. All rights reserved.
 </footer>
 </body>
 </html>
